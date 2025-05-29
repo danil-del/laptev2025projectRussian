@@ -153,7 +153,6 @@
                         const data = await response.json();
                         return data[0].url;
                     } else {
-                        // For others – random image
                         return `https://random.imagecdn.app/400/300?timestamp=${Date.now()}`;
                     }
                 } catch (error) {
@@ -190,7 +189,7 @@
                         block.appendChild(img);
 
                         block.addEventListener('click', () => {
-                            window.open('http://127.0.0.1:3000/index.html', '_blank');
+                            window.open('https://danil-del.github.io/catpageRUS/', '_blank');
                         });
 
                         setTimeout(() => {
