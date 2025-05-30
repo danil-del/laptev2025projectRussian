@@ -39,7 +39,7 @@
             </header>
             <h1 class="dog-title">DOG.</h1>
             <p class="subtitle">Твой лучший друг ждет тебя</p>
-            <a href="#" class="cta-button">Перейти к животным</a>
+            <a href="#animals" class="cta-button">Перейти к животным</a>
             <img class="dog" src="./Group 8.png" alt="">
         </section>
 
@@ -55,13 +55,14 @@
             <img class="human" src="./Group 19.png" alt>
             <h2 class="bestitle" id="About us">Мы лучшие в:</h2>
             <div class="weare">
-                <div class="square dark"></div>
-                <div class="square light"></div>
-                <div class="square dark"></div>
-                <div class="square dark"></div>
-                <div class="square light"></div>
-                <div class="square dark"></div>
+                <div class="square dark"><img class="hairbrush" src="./hairbrush.png" alt=""></div>
+                <div class="square light"><img class="hairbrush" src="./syringe.png" alt=""></div>
+                <div class="square dark"><img class="hairbrush" src="./tree.png" alt=""></div>
+                <div class="square light"><img class="hairbrush" src="./dog-training.png" alt=""></div>
+                <div class="square dark"><img class="hairbrush" src="./pet-food.png" alt=""></div>
+
             </div>
+            <div class="care-text" id="careText"></div>
             <div class="orangebl"></div>
             <div class="whyyou">
                 <h2 class="titlewhy">Почему нас выбирают</h2>
@@ -75,14 +76,12 @@
         </section>
 
         <section class="shop" id="animals">
-            <h2 class="shopan">Наши животные</h2>
+            <h2 class="shopan">Our animals</h2>
             <div class="button-line">
                 <button class="button-shop" onclick="toggleCategory('cat')">Cats</button>
                 <button class="button-shop" onclick="toggleCategory('dog')">Dogs</button>
                 <button class="button-shop" onclick="toggleCategory('other')">Others</button>
             </div>
-
-
 
             <div class="animal-gallery">
                 <div class="row static-row">
@@ -90,8 +89,6 @@
                     <div class="animal-card base"></div>
                     <div class="animal-card base"></div>
                 </div>
-
-                <div class="row" id="extra-row"></div>
             </div>
         </section>
 
@@ -109,28 +106,57 @@
             <img class="goldog" src="./Group 17.png" alt="">
         </section>rc="./Group 17.png" alt="">
         </section>
-
         <section class="donation" id="Donate">
-            <h2 class="kidness">Делайте добро</h2>
+            <h2 class="kidness">Do good</h2>
+            <button class="donatebtn">Donate</button>
+            <img class="catplay" src=".//playful-orange-kitten-reaching-paw-up_772720-3552-Photoroom.png" alt="">
             <div class="don">
                 <div class="textdon">
-                    <h3 class="donationmotivation">Donate money to the shelter to make the animals feel even better</h3>
-                    <p class="donatemot"> Каждое пожертвование — это корм, лекарства и уход для животных, оставшихся без
+                    <h3 class="donationmotivation">Пожертвуйте деньги в наш приют, чтобы сделать жизнь животных ещё
+                        лучше!!</h3>
+                    <p class="donatemot">Каждое пожертвование — это корм, лекарства и уход для животных, оставшихся без
                         дома. Ваша помощь помогает нам заботиться о них ежедневно, предоставлять лечение и находить
-                        новых заботливых хозяев. Вместе мы можем больше!
-                    </p>
+                        новых заботливых хозяев. Вместе мы можем больше!</p>
                     <img class="footimg" src="./footprint.png" alt="">
                 </div>
-                <button class="donatebtn">Donate</button>
                 <img class="imgline" src="./Rectangle 41.png" alt="">
             </div>
+            <div class="modal" id="donationModal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Donate Now</h3>
+                    <form class="donation-form" id="donationForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+
+                        <label for="amount">Amount ($):</label>
+                        <input type="number" id="amount" required min="1">
+
+                        <button type="submit" class="submit-donation">Submit Donation</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal" id="confirmationModal">
+                <div class="modal-content">
+                    <span class="close-btn-confirm">&times;</span>
+                    <h3>Thank you!</h3>
+                    <p>Your donation has been successfully received 🧡</p>
+                </div>
+            </div>
+
+
         </section>
+
 
 
         <section class="social-media" id='Social-media'>
             <h3 class="textt">Наши социальные сети</h3>
             <div class="socialbox">
-                <img src="./icons8-vk.svg" class="wk" alt="">
+                <a href="https://vk.com/zoozashita_ru"><img src="./icons8-vk.svg" class="wk" alt=""></a>
                 <img src="./icons8-телеграм (1).svg" class="tg" alt="">
             </div>
             <div class="contacts">
@@ -162,19 +188,39 @@
             }
 
             async function toggleCategory(category) {
-                const extraRow = document.getElementById('extra-row');
+                const baseCards = document.querySelectorAll('.animal-card.base');
 
                 if (currentCategory === category) {
-                    extraRow.innerHTML = '';
+                    baseCards.forEach((card) => {
+                        const img = card.querySelector('img');
+                        if (img) {
+                            img.classList.remove('visible');
+                            img.classList.add('hidden');
+                            setTimeout(() => {
+                                card.innerHTML = '';
+                                card.onclick = null;
+                            }, 400);
+                        }
+                    });
                     currentCategory = null;
                 } else {
-                    extraRow.innerHTML = '';
-                    for (let i = 0; i < 3; i++) {
-                        const block = document.createElement('div');
-                        block.classList.add('animal-card', `${category}-block`);
-                        block.style.opacity = '0';
-                        block.style.transform = 'translateY(20px)';
-                        block.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    baseCards.forEach(card => {
+                        const img = card.querySelector('img');
+                        if (img) {
+                            img.classList.remove('visible');
+                            img.classList.add('hidden');
+                            setTimeout(() => {
+                                card.innerHTML = '';
+                                card.onclick = null;
+                            }, 400);
+                        } else {
+                            card.innerHTML = '';
+                            card.onclick = null;
+                        }
+                    });
+
+                    for (let i = 0; i < baseCards.length; i++) {
+                        const card = baseCards[i];
 
                         const imageUrl = await fetchImage(category);
 
@@ -186,31 +232,39 @@
                         img.style.objectFit = 'cover';
                         img.style.borderRadius = '12px';
 
-                        block.appendChild(img);
-
-                        block.addEventListener('click', () => {
-                            window.open('https://danil-del.github.io/catpageRUS/', '_blank');
-                        });
+                        card.appendChild(img);
 
                         setTimeout(() => {
-                            block.style.opacity = '1';
-                            block.style.transform = 'translateY(0)';
+                            img.classList.add('visible');
                         }, 50 * i);
 
-                        extraRow.appendChild(block);
+                        let link = '#';
+                        if (category === 'dog') {
+                            link = 'https://danil-del.github.io/dogpageEN/';
+                        } else if (category === 'cat') {
+                            link = 'https://danil-del.github.io/catpageEN/';
+                        }
+
+                        card.onclick = () => {
+                            window.open(link, '_blank');
+                        };
                     }
+
                     currentCategory = category;
                 }
             }
 
             document.addEventListener('click', function (event) {
                 const isButtonClick = event.target.closest('.button-shop');
-                const isInsideExtraRow = event.target.closest('#extra-row');
-                if (!isButtonClick && !isInsideExtraRow && currentCategory !== null) {
-                    document.getElementById('extra-row').innerHTML = '';
-                    currentCategory = null;
+                const isInsideCard = event.target.closest('.animal-card.base');
+                if (!isButtonClick && !isInsideCard && currentCategory !== null) {
+                    toggleCategory(currentCategory);
                 }
             });
+
+
+
+
 
 
             function register() {
@@ -222,14 +276,13 @@
                     return;
                 }
 
-                // Простая валидация email
+
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     alert("Please enter a valid email.");
                     return;
                 }
 
-                // Сохраняем в localStorage (симуляция бэка)
                 const users = JSON.parse(localStorage.getItem('users')) || [];
 
                 const userExists = users.some(user => user.email === email);
@@ -275,6 +328,75 @@
                     document.body.classList.remove('menu-open');
                 });
             });
+            const donateBtn = document.querySelector('.donatebtn');
+            const modal = document.getElementById('donationModal');
+            const confirmModal = document.getElementById('confirmationModal');
+            const closeBtn = document.querySelector('.close-btn');
+            const closeBtnConfirm = document.querySelector('.close-btn-confirm');
+            const form = document.getElementById('donationForm');
+
+            donateBtn.addEventListener('click', () => {
+                modal.style.display = 'block';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            closeBtnConfirm.addEventListener('click', () => {
+                confirmModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) modal.style.display = 'none';
+                if (e.target === confirmModal) confirmModal.style.display = 'none';
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                modal.style.display = 'none';
+                confirmModal.style.display = 'block';
+                form.reset();
+            });
+            const squares = document.querySelectorAll('.square');
+            const careText = document.getElementById('careText');
+
+            const infoMap = {
+                'hairbrush.png': 'Животным регулярно вычесывают шерсть и ухаживают за их внешностью.',
+                'syringe.png': 'Все животные вакцинированы и проходят регулярный медицинский осмотр.',
+                'tree.png': 'Питомцы гуляют на свежем воздухе в безопасной и ухоженной среде.',
+                'dog-training.png': 'Животные проходят дрессировку и социализацию, чтобы лучше адаптироваться.',
+                'pet-food.png': 'Питомцы получают качественное и сбалансированное питание каждый день.'
+            };
+
+            let currentImage = null;
+
+            squares.forEach(square => {
+                square.addEventListener('click', () => {
+                    const img = square.querySelector('img');
+                    const fileName = img.getAttribute('src').split('/').pop();
+
+                    if (currentImage === fileName) {
+                        careText.classList.remove('show');
+                        setTimeout(() => {
+                            careText.textContent = '';
+                        }, 300);
+                        currentImage = null;
+                    } else {
+                        careText.classList.remove('show');
+                        setTimeout(() => {
+                            careText.textContent = infoMap[fileName] || '';
+                            careText.classList.add('show');
+                        }, 300);
+                        currentImage = fileName;
+                    }
+                });
+            });
+
+
+
+
+
 
 
 
