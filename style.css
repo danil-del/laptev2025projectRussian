@@ -248,6 +248,7 @@ a:hover {
     transition: opacity 0.5s ease, transform 0.5s ease;
     font-family: "Montserrat", sans-serif;
 }
+
 .care-text.show {
     opacity: 1;
     transform: translateY(0);
@@ -368,6 +369,7 @@ a:hover {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
 }
+
 .btn-log:hover {
     transition: transform 0.3s ease;
     transform: scale(1.1);
@@ -491,7 +493,8 @@ a:hover {
     z-index: 50;
 
 }
-.donatebtn:hover{
+
+.donatebtn:hover {
     background-color: #f6e366;
     color: #ffffff;
     border-color: #f6e366;
@@ -533,13 +536,14 @@ a:hover {
 .textdon {
     margin-top: -600px;
 }
+
 .catplay {
     margin-left: 800px;
     margin-top: -100px;
     width: 400px;
     position: relative;
     top: 250px;
-    
+
 }
 
 .imgline {
@@ -807,11 +811,13 @@ body.menu-open {
     transition: transform 0.3s ease, filter 0.3s ease;
     transition: all 0.3s ease;
 }
+
 .footimg {
     width: 300px;
     margin-left: 450px;
     margin-top: -70px;
 }
+
 .shopan {
     font-size: 48px;
     color: #2B3348;
@@ -884,6 +890,7 @@ body.menu-open {
     transform: scale(0.95);
     opacity: 0;
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -909,21 +916,29 @@ body.menu-open {
     animation: scaleUp 0.4s ease-in-out;
     text-align: center;
 }
-.modal-content h3, p{
+
+.modal-content h3,
+p {
     color: #2B3348;
     font-family: "Montserrat", sans-serif;
 
 }
 
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes scaleUp {
     0% {
         transform: scale(0.7);
     }
+
     100% {
         transform: scale(1);
     }
@@ -1200,21 +1215,33 @@ body.menu-open {
 section {
     animation: fadeIn 1s ease-in-out;
 }
+
 @media (max-width: 768px) {
 
     .dog {
         display: none;
     }
 
- 
+
     .nav-links {
         display: none;
     }
 
- 
-    .hero, .subtitle, .cta-button, .main-title, .decorative-text, 
-    .bestitle, .shopan, .stay, .login2, .donatemot,
-    .textdon, .titlewhy, .textwhy, .whyyou, .kidness {
+
+    .hero,
+    .subtitle,
+    .cta-button,
+    .main-title,
+    .decorative-text,
+    .bestitle,
+    .shopan,
+    .stay,
+    .login2,
+    .donatemot,
+    .textdon,
+    .titlewhy,
+    .textwhy,
+    .whyyou {
         text-align: center;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -1229,20 +1256,28 @@ section {
         margin-right: auto !important;
         display: block;
     }
+
     .titlewhy {
         max-width: 90%;
         text-align: center;
     }
+
     .kidness {
         text-align: center;
         max-width: 90%;
     }
+
     .donationmotivation {
         text-align: center;
         margin-left: 40px;
     }
+
     .donatemot {
         text-align: center;
+    }
+    .bestitle {
+        font-size: 20px;
+        margin-top: 100px;
     }
 
 
@@ -1257,7 +1292,7 @@ section {
         align-items: center;
     }
 
- 
+
     .dog-title {
         font-size: 48px;
         margin: 0 auto 20px auto;
@@ -1285,6 +1320,7 @@ section {
         align-items: center;
         margin: 30px 0;
     }
+
     .whyyou {
         max-width: 90%;
     }
@@ -1299,12 +1335,60 @@ section {
     .orangebl,
     .decorative-box,
     .img2,
-    .human {
+    .human,
+    .footimg,
+    .catplay,
+    .dog-title,
+    .news, 
+    .kidness,
+    .donationmotivation,
+    .donatemot {
         display: none;
+    }
+    .login2 {
+        margin-bottom: 300px;
+    }
+    #email {
+        margin-top: -230px;
+    }
+
+    .stay {
+        font-size: 24px;
+        margin-top: -30px;
+    }
+    .donatebtn {
+        margin-top: 200px;
+        margin-bottom: -20px;
+        margin-left: 50%;
+    }
+ 
+
+    .donation {
+        margin-top: 100px;
+        margin-bottom: 1000px;
+    }
+
+    .donation h3 {
+        font-size: 20px;
     }
 
     .don {
         width: 90%;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+
+    .weare {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .socialbox {
@@ -1346,6 +1430,7 @@ section {
     .btnlang {
         margin: 10px auto;
         display: block;
+
     }
 
     .nav-links2 {
@@ -1356,4 +1441,5 @@ section {
     .nav-links2.active {
         right: 0;
     }
+
 }
