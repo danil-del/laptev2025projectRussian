@@ -999,6 +999,28 @@ p {
     color: #2B3348;
 }
 
+.contacts {
+    position: relative;
+}
+
+.hc {
+    position: absolute;
+    left: 80%;
+    bottom: 40px;
+    color: white;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+}
+
+.hc-1 {
+    position: absolute;
+    left: 80%;
+    bottom: 80px;
+    color: #FA996B;
+    font-size: 24px;
+    font-family: "Montserrat", sans-serif;
+}
+
 
 
 
@@ -1275,6 +1297,7 @@ section {
     .donatemot {
         text-align: center;
     }
+
     .bestitle {
         font-size: 20px;
         margin-top: 100px;
@@ -1339,15 +1362,17 @@ section {
     .footimg,
     .catplay,
     .dog-title,
-    .news, 
+    .news,
     .kidness,
     .donationmotivation,
     .donatemot {
         display: none;
     }
+
     .login2 {
         margin-bottom: 300px;
     }
+
     #email {
         margin-top: -230px;
     }
@@ -1356,12 +1381,13 @@ section {
         font-size: 24px;
         margin-top: -30px;
     }
+
     .donatebtn {
         margin-top: 200px;
         margin-bottom: -20px;
         margin-left: 50%;
     }
- 
+
 
     .donation {
         margin-top: 100px;
@@ -1440,6 +1466,14 @@ section {
 
     .nav-links2.active {
         right: 0;
+    }
+
+    .hc,
+    .hc-1 {
+        position: static;
+        left: auto;
+        bottom: auto;
+        margin: 10px auto;
     }
 
 }

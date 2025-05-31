@@ -94,7 +94,7 @@
 
 
         <section class="login" id="Account">
-            <h4 class="stay">Остовайтесь в курсе событий</h4>
+            <h4 class="stay">Оставайтесь в курсе событий</h4>
             <div class="login-space">
                 <h2 class="login2">REGISTER</h2>
                 <input type="email" name="email" id="email" placeholder="Email">
@@ -160,7 +160,8 @@
                 <img src="./icons8-телеграм (1).svg" class="tg" alt="">
             </div>
             <div class="contacts">
-                <a href="tel:+73832149291"></a>
+                <h3 class="hc-1">Наши контакты:</h3>
+                <a class="hc" href="tel:+73832149291">+73832149291</a>
             </div>
         </section>
         <a href="#top" id="scroll-to-top" class="scroll-to-top-button"><img src="./Arrow 2.svg" alt=""></a>
@@ -240,13 +241,13 @@
 
                         let link = '#';
                         if (category === 'dog') {
-                            link = 'https://danil-del.github.io/dogpageRUS/';
+                            link = 'https://danil-del.github.io/dogpageEN/';
                         } else if (category === 'cat') {
-                            link = 'https://danil-del.github.io/catpageRUS/';
+                            link = 'https://danil-del.github.io/catpageEN/';
                         }
 
                         card.onclick = () => {
-                            window.open(link, '_blank');
+                             window.open(link, '_blank');
                         };
                     }
 
@@ -261,9 +262,6 @@
                     toggleCategory(currentCategory);
                 }
             });
-
-
-
 
 
 
@@ -361,14 +359,13 @@
             const squares = document.querySelectorAll('.square');
             const careText = document.getElementById('careText');
 
-           const infoMap = {
+            const infoMap = {
                 'hairbrush.png': 'Животным регулярно вычесывают шерсть и ухаживают за их внешностью.',
                 'syringe.png': 'Все животные вакцинированы и проходят регулярный медицинский осмотр.',
                 'tree.png': 'Питомцы гуляют на свежем воздухе в безопасной и ухоженной среде.',
                 'dog-training.png': 'Животные проходят дрессировку и социализацию, чтобы лучше адаптироваться.',
                 'pet-food.png': 'Питомцы получают качественное и сбалансированное питание каждый день.'
             };
-
 
             let currentImage = null;
 
